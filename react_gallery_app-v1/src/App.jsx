@@ -2,9 +2,9 @@ import Search from "./components/Search";
 import Nav from "./components/Nav";
 import apiKey from "./config";
 import { Route, Routes } from "react-router";
-import Cats from "./components/Cats";
-import Dogs from "./components/Dogs";
-import Computers from "./components/Computers";
+import PhotoList from "./components/PhotoList";
+import Photo from "./components/Photo.JSX";
+import { Navigate } from "react-router";
 
 const App = () => {
   return (
@@ -12,9 +12,10 @@ const App = () => {
       <Search />
       <Nav />
       <Routes>
-        <Route path="/cats" element={<Cats />} />
-        <Route path="/dogs" element={<Dogs />} />
-        <Route path="/computers" element={<Computers />} />
+        <Route path="/" element={<Navigate to="cats" />} />
+        <Route path="/cats" element={<PhotoList />} />
+        <Route path="/dogs" element={<PhotoList />} />
+        <Route path="/computers" element={<PhotoList />} />
       </Routes>
     </div>
   );
