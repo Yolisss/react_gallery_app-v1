@@ -1,7 +1,19 @@
+import { NavLink } from "react-router-dom";
+
 const Nav = () => {
   return (
     <div>
-      <h1>Nav Component</h1>
+      <ul>
+        <li>
+          <NavLink to="/cats">Cats</NavLink>
+        </li>
+        <li>
+          <NavLink to="/dogs">Dogs</NavLink>
+        </li>
+        <li>
+          <NavLink to="/computers">Computers</NavLink>
+        </li>
+      </ul>
     </div>
   );
 };
