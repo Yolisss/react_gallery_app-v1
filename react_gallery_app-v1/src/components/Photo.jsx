@@ -1,9 +1,11 @@
-const Photo = () => {
+const Photo = (props) => {
   return (
     <div>
       <h1>Photo Component</h1>
       <li>
-        <img />
+        <img
+          src={`https://live.staticflickr.com/${props.server}/${props.id}_${props.secret}.jpg`}
+        />
       </li>
     </div>
   );
