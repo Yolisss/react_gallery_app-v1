@@ -8,8 +8,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const App = () => {
-  let [data, setData] = useState([]);
-  let [query, setQuery] = useState("");
+  const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
   const key = apiKey;
 
   //   const handleChangeQuery = () => {
