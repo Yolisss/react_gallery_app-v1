@@ -9,7 +9,7 @@ import axios from "axios";
 
 const App = () => {
   let [data, setData] = useState([]);
-  let [query, setQuery] = useState("cats");
+  let [query, setQuery] = useState("");
   const key = apiKey;
 
   //   const handleChangeQuery = () => {
