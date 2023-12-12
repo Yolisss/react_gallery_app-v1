@@ -11,9 +11,9 @@ const App = () => {
   let [data, setData] = useState([]);
   const key = apiKey;
 
-  const handleChangeQuery = () => {
-    fetchData(query);
-  };
+  //   const handleChangeQuery = () => {
+  //     fetchData(query);
+  //   };
 
   function fetchData(query) {
     axios
