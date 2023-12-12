@@ -25,8 +25,6 @@ const App = () => {
         .then((response) => {
           //from the response, i'm grabbing the object by typing '.data'
           setData(response.data);
-          console.log("response", response);
-          console.log(data);
         })
         .catch((error) => {
           console.log("Error fetching and parsing data", error);
