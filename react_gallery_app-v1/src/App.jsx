@@ -42,7 +42,7 @@ const App = () => {
         <Route path="/dogs" element={<PhotoList />} />
         <Route path="/computers" element={<PhotoList />} />
         {/* data={data} */}
-        <Route path="/search/:query" element={<PhotoList data={data} />} />
+        {/* <Route path="/search/:query" element={<PhotoList data={data} />} /> */}
       </Routes>
     </div>
   );
