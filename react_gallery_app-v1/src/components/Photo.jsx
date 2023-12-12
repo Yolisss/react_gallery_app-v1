@@ -1,3 +1,4 @@
+import PhotoList from "./PhotoList";
 const Photo = (props) => {
   return (
     <div>

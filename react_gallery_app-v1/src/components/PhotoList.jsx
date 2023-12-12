@@ -4,6 +4,7 @@
 
 const PhotoList = (props) => {
   const listOfPhotos = props.data;
+  //console.log(listOfPhoto );
   //   console.log(listOfPhotos);
   //   //console.log("query in photolist", query);
   //   //console.log("array of photos", photos);

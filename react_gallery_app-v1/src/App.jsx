@@ -11,18 +11,11 @@ const App = () => {
   let [data, setData] = useState([]);
   const key = apiKey;
 
-  //   const handleChangeQuery = () => {
-  //     fetchData(query);
-  //   };
-  //   useEffect(() => {
-  //     fetchData(query);
-  //     console.log("query is here", query);
-  //   }, [query]);
+  const handleChangeQuery = () => {
+    fetchData(query);
+  };
 
   function fetchData(query) {
-    console.log("data should be here", data);
-
-    //let [query, setQuery] = useState("");
     axios
       .get(
         `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
@@ -30,11 +23,13 @@ const App = () => {
       .then((response) => {
         //from the response, i'm grabbing the object by typing '.data'
         setData(response.data.photos.photo);
-        console.log("data should be displayed here", response);
+        console.log("response", response);
+        console.log(data);
       });
     // .catch((error) => {
     //   console.log("Error fetching and parsing data", error);
     // });
+    console.log("response should be here", response);
   }
 
   return (
