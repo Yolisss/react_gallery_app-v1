@@ -1,13 +1,11 @@
-import PhotoList from "./PhotoList";
-const Photo = (props) => {
+const Photo = ({ photo }) => {
   return (
-    <div>
-      <li>
-        <img
-          src={`https://live.staticflickr.com/${props.server}/${props.id}_${props.secret}.jpg`}
-        />
-      </li>
-    </div>
+    <li>
+      <img
+        alt={photo.title}
+        src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_n.jpg`}
+      />
+    </li>
   );
 };
 

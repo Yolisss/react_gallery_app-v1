@@ -1,27 +1,27 @@
 // import { useState } from "react";
 // import axios from "axios";
-// import Photo from "./Photo.JSX";
+import Photo from "./Photo.JSX";
 
-// const GifList = props => {
-//   const results = props.data;
-//   let images;
-//   if(results.length > 0){
-//     images = results.map(image => <Photo url={gif.images.fixed_height.url} key={gif.id}/>)
-//   } else{
-//     gifs = <NoGifs />
-//   }
-//   return(
-//     <ul className="gif-list">
-//       {gifs}
-//     </ul>
-//   );
-// }
-// export default GifList;
+const PhotoList = (props) => {
+  const listOfPhotos = props.data;
+  //console.log(listOfPhoto );
+  //   console.log(listOfPhotos);
+  //   //console.log("query in photolist", query);
+  //   //console.log("array of photos", photos);
+  //   //const title = props.data.photo.title;
 
-// export default PhotoList;
+  //   // let { query } = useParams();
 
-const PhotoList = () => {
-  return <div>photolist</div>;
+  return (
+    <div className="photo-container">
+      <h2>Results</h2>
+      <ul>
+        {listOfPhotos.map((photo) => (
+          <Photo key={photo.id} photo={photo} />
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default PhotoList;
