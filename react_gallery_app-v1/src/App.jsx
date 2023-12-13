@@ -1,20 +1,34 @@
 import Search from "./components/Search";
 import Nav from "./components/Nav";
 import apiKey from "./config";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import PhotoList from "./components/PhotoList";
 import { Navigate } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const App = () => {
-  const [data, setData] = useState([]);
+  //what's going to change in our app component when users interact with it?
+
+  const [photos, setPhotos] = useState([]);
   const [query, setQuery] = useState("cats");
+  //what is the current URL that you're at
+  const location = useLocation();
   const key = apiKey;
-  console.log(key);
+
+  //   useEffect(() => {
+  //     fetchData(query);
+  //   }, []);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
-    fetchData(query);
-  }, []);
+    let path = location.pathname.slice(1);
+    if (path === "cats" || path === "dogs" || path === "computers") {
+      fetchData(path);
+    }
+  }, [location]);
 
   function fetchData(query) {
     axios
@@ -23,24 +37,34 @@ const App = () => {
       )
       .then((response) => {
         //from the response, i'm grabbing the object by typing '.data'
-        setData(response.data.photos.photo);
+        setPhotos(response.data.photos.photo);
+        console.log(response);
       })
-      .catch((error) => {
-        console.log("Error fetching and parsing data", error);
-      });
+      .catch(
+        (error) => {
+          console.log("Error fetching and parsing data", error);
+        },
+        [query]
+      );
   }
+
+  const handleQueryChange = (searchText) => {
+    setQuery(searchText);
+    fetchData(searchText);
+    navigate(`/search/${searchText}`);
+  };
 
   return (
     <div className="container">
-      <Search />
+      <Search changeQuery={handleQueryChange} />
       <Nav />
       <Routes>
         <Route path="/" element={<Navigate to="cats" />} />
-        <Route path="/cats" element={<PhotoList data={data} />} />
-        <Route path="/dogs" element={<PhotoList />} />
-        <Route path="/computers" element={<PhotoList />} />
+        <Route path="/cats" element={<PhotoList data={photos} />} />
+        <Route path="/dogs" element={<PhotoList data={photos} />} />
+        <Route path="/computers" element={<PhotoList data={photos} />} />
         {/* data={data} */}
-        {/* <Route path="/search/:query" element={<PhotoList data={data} />} /> */}
+        <Route path="/search/:query" element={<PhotoList data={photos} />} />
       </Routes>
     </div>
   );

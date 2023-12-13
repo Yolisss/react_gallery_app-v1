@@ -8,10 +8,20 @@ const Search = (props) => {
     props.changeQuery(searchText);
     e.currentTarget.reset();
   };
+
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+  };
   return (
     <div>
       <form className="search-form" onSubmit={handleSubmit}>
-        <input type="search" name="search" placeholder="Search" required />
+        <input
+          type="search"
+          name="search"
+          placeholder="Search"
+          required
+          onChange={handleChange}
+        />
         <button type="submit" className="search-button">
           <svg
             fill="#fff"
