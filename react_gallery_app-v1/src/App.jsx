@@ -16,11 +16,6 @@ const App = () => {
   //what is the current URL that you're at
   const location = useLocation();
   const key = apiKey;
-
-  //   useEffect(() => {
-  //     fetchData(query);
-  //   }, []);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,7 +58,6 @@ const App = () => {
         <Route path="/cats" element={<PhotoList data={photos} />} />
         <Route path="/dogs" element={<PhotoList data={photos} />} />
         <Route path="/computers" element={<PhotoList data={photos} />} />
-        {/* data={data} */}
         <Route path="/search/:query" element={<PhotoList data={photos} />} />
       </Routes>
     </div>
